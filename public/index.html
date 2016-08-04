@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>ecommerce stuff</title>
-  <script src="app/app.module.js"></script>
 </head>
-<body>
+<body ng-controller="homeCtrl">
   <button ng-click="getAllProducts()" type="button" name="button">Click me for cool stuff!</button>
   <div class="stuff" ng-repeat="stuff in products">
-
+    <ul>
+      <li>ID: {{stuff.id}}</li>
+      <li>Name: {{stuff.name}}</li>
+      <li>Price: {{stuff.price}}</li>
+      <li>Type: {{stuff.type}}</li>
+      <li>Description: {{stuff.description}}</li>
+    </ul>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
