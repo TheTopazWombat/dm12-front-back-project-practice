@@ -2,8 +2,16 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var massive = require('massive');
+var connectionString = 'postgres://aleeexkang@localhost/front_to_back'
 
 var app = module.exports = express(); // this has to be first or else the below statements won't know what var app is
+
+var massiveInstance = massive.connectSync({
+  connectionString: connectionString
+});
+
+app.set('db', massiveInstance);
+
 app.use(bodyParser.json());
 app.use(cors());
 
