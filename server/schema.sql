@@ -8,5 +8,5 @@ create table products(
 
 create table car (
   id serial primary key not null,
-  products_id int references products,
+  products_id int references products
 );
