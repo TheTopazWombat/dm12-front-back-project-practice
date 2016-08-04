@@ -16,6 +16,8 @@ console.log(db);
 
 app.use(bodyParser.json());
 app.use(cors());
+//note the double underscore next to dirname
+app.use(express.static(__dirname + './../public'));
 
 //test
 console.log(1+1);
