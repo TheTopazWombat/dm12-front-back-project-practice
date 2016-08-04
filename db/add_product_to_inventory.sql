@@ -6,11 +6,11 @@
 -- )
 --
 -- values (
---   'ninja shirt',
+--   'ninja_shirt',
 --   'screenprinted shirt',
 --   9.00,
 --   'shirt'
--- )
+-- );
 
 insert into products (
   name,

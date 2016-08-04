@@ -11,6 +11,8 @@ var massiveInstance = massive.connectSync({
 });
 
 app.set('db', massiveInstance);
+var db = app.get('db');
+console.log(db);
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -23,15 +25,22 @@ app.get('/test', function(req, res, next) {
   res.status(200).send('Yay');
 });
 
+//GET endpoints
 //get all products
 app.get('/products', function(req,res,next) {
-
-})
+  db.get_all_products(function(err,products) {
+    res.status(200).send(products);
+  });
+});
 
 //find specific products
-app.get('products/:product', function(req,res,next) {
+app.get('/products/:product', function(req,res,next) {
+  db.get_product_by_name(req.params.product, function(err, product){
+    console.log(product);
+    res.send(product);
 
-})
+  });
+});
 
 //POST endpoints
 //difference between post and put. post is create, put is update
